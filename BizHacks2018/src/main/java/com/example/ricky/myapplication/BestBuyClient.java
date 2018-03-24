@@ -27,7 +27,7 @@ public class BestBuyClient extends Client {
             String param = params[i];
             if (param != null) {
                 if (i==0) {
-                    rsp += "?" + param;
+                    rsp += "/" + param;
                 } else {
                     rsp += "&" + param;
                 }
@@ -72,15 +72,14 @@ public class BestBuyClient extends Client {
     public JSONObject getSearch(String query, String page, String sort, String storeId,
                                   String zipCode, String facetsOnly, String platform, String lang) {
         String[] array = new String[8];
-        if (page!=null) {array[0] = "query=" +query;}else{array[1]=null;}
-        if (page!=null) {array[1] = "page=" +page;}else{array[1]=null;}
-        if (page!=null) {array[2] = "sort=" +sort;}else{array[1]=null;}
-        if (page!=null) {array[3] = "sortId=" +storeId;}else{array[1]=null;}
-        if (page!=null) {array[4] = "zipCode=" +zipCode;}else{array[1]=null;}
-        if (page!=null) {array[5] = "facetsOnly=" +facetsOnly;}else{array[1]=null;}
-        if (page!=null) {array[6] = "platform=" +platform;}else{array[1]=null;}
-        if (page!=null) {array[7] = "lang=" +lang;}else{array[1]=null;}
-
+        array[0] = query;
+        array[1] = page;
+        array[2] = sort;
+        array[3]= storeId;
+        array[4] = zipCode;
+        array[5] = facetsOnly;
+        array[6] = platform;
+        array[7] = lang;
         String urlBuffer = appendParams(this.domain + "/v3/products/search", array );
         URL url;
         try {
