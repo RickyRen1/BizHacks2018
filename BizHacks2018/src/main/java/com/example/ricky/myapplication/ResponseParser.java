@@ -14,6 +14,7 @@ import java.util.Iterator;
 
 public class ResponseParser {
 
+
     public static ArrayList<Directory> parseCatelog(JSONObject json) {
         try {
             JSONObject si = json.getJSONObject("si");
@@ -27,24 +28,38 @@ public class ResponseParser {
     }
 
     public static ArrayList<Item> parseSearchItem(JSONObject json) {
-        ArrayList<Item> result = new ArrayList<Item>();
         try {
+            ArrayList<Item> result = new ArrayList<Item>();
             JSONObject searchAPI = json.getJSONObject("searchApi");
             JSONArray docs = searchAPI.getJSONArray("documents");
 
             for (int i=0 ; i<docs.length() ; i++) {
                 JSONObject doc = docs.getJSONObject(i);
                 JSONObject summmary = doc.getJSONObject("summary");
-                JSONObject names = summmary.getJSONObject("`names");
+                JSONObject names = summmary.getJSONObject("names");
                 String shortname = names.getString("short");
                 String skuId = doc.getString("skuId");
-                System.out.println("id: " + skuId + ", names:  " + shortname);
-                result.add(new Item ( shortname, skuId));
+                JSONObject priceBlock = doc.getJSONObject("priceBlock");
+                JSONObject itemPrice = priceBlock.getJSONObject("itemPrice");
+                String onSale = itemPrice.getString("priceEventType");
+                String regularPrice = Double.toString(itemPrice.getDouble("regularPrice"));
+                String salePrice;
+                Boolean onsale;
+                if (onSale.equals( "onsale")) {
+                    onsale = true;
+                    salePrice = Double.toString(itemPrice.getDouble("currentPrice"));
+                } else {
+                    onsale = false;
+                    salePrice = Double.toString(itemPrice.getDouble("regularPrice"));
+                }
+                System.out.println("id: " + skuId + ", names:  " + shortname + ", onSale: " + onsale +
+                        ", currentPrice: $" + salePrice + ", regularPrice: $" + regularPrice);
+                result.add(new Item (shortname, skuId, false, onsale, regularPrice, salePrice));
             }
             return result;
         } catch (JSONException e) {
             System.out.println(e.getMessage());
-            return result;
+            return null;
 
         }
     }
@@ -58,5 +73,6 @@ public class ResponseParser {
         }
         return result;
     }
+
 
 }
