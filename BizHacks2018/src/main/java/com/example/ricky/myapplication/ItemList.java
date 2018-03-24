@@ -15,6 +15,7 @@ public class ItemList {
 
 
     public ItemList(ArrayList<Item> map) {
+
         this.arrItem = new HashMap<String,Item>();
         for (int i=0 ; i<map.size() ; i++) {
             this.addItem(map.get(i));
@@ -37,6 +38,7 @@ public class ItemList {
         return result;
 
     }
+
 
     public ArrayList<String> getArrayString(ArrayList<Item> arrstr) {
         ArrayList<String> result = new ArrayList<String>();
@@ -64,6 +66,25 @@ public class ItemList {
             }
         }
         return result;
+    }
+
+    public ArrayList<String> getArraySaleNameList() {
+        ArrayList<String> result = new ArrayList<String>();
+        for (HashMap.Entry<String, Item> entry : this.arrItem.entrySet()) {
+            String temp = "";
+            if (entry.getValue().getOnSale()) {
+                temp = "ON-SALE!\n";
+            }
+            temp += entry.getValue().getName();
+            result.add(temp);
+
+        }
+        return result;
+    }
+
+
+    public Item getValue(String key) {
+        return this.arrItem.get(key);
     }
 
 

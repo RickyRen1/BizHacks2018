@@ -54,7 +54,8 @@ public class ResponseParser {
                 }
                 System.out.println("id: " + skuId + ", names:  " + shortname + ", onSale: " + onsale +
                         ", currentPrice: $" + salePrice + ", regularPrice: $" + regularPrice);
-                result.add(new Item (shortname, skuId, false, onsale, salePrice, regularPrice));
+                result.add(new Item (shortname, skuId, false, onsale, regularPrice, salePrice));
+
             }
             return result;
         } catch (JSONException e) {
@@ -73,5 +74,6 @@ public class ResponseParser {
         }
         return result;
     }
+
 
 }
