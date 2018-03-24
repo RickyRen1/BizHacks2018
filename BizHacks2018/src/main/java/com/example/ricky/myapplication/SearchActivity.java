@@ -33,6 +33,51 @@ public class SearchActivity extends AppCompatActivity {
            productListSaleStatus = itemListEnum.productListSaleStatus;
     }
 
+
+    private void generateProductList() {
+        this.arrItemList = new ArrayList<Item>();
+        Item item = new Item("ASUS Vivobook 15.6\" Laptop - Grey (Intel Core i5-8250U/1TB SSHD/8GB RAM/Windows 10)",
+                Integer.toString(12315119),
+                false,
+                true,
+                "799.99",
+                "599.99"
+        );
+        this.arrItemList.add(item);
+        item = new Item("Apple AirPods In-Ear Bluetooth Headphones with Mic (MMEF2C/A) - White",
+                Integer.toString(10557542),
+                false,
+                false,
+                "219.99",
+                "219.99"
+        );
+        this.arrItemList.add(item);
+        item = new Item("ASUS Vivobook 15.6\" Laptop - Grey (Intel Core i5-8250U/1TB SSHD/8GB RAM/Windows 10)",
+                Integer.toString(12315119),
+                false,
+                true,
+                "599.99",
+                "799.99"
+        );
+        this.arrItemList.add(item);
+        item = new Item("Nintendo Super NES Classic Edition Console)",
+                Integer.toString(11470309),
+                false,
+                false,
+                "99.99",
+                "99.99"
+        );
+        this.arrItemList.add(item);
+        item = new Item(" MacBook Pro 13 2.5GHz i5 4GB / 500GB - Refurbished, Grade A, Excellent Condition, 9/10",
+                Integer.toString(12308129),
+                false,
+                true,
+                "1099.0",
+                "$889.0"
+        );
+        this.itemList = new ItemList(this.arrItemList);
+        this.productList = itemList.getArrayString(this.arrItemList);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +113,7 @@ public class SearchActivity extends AppCompatActivity {
                 System.out.println("item name is " + arrItemList.get((int)id).getName() + " using id");
                 System.out.println("item name is " + arrItemList.get(position).getName() + " using position");
                 arrItemList.get(position).setFavourite(!(arrItemList.get(position).getFavourite()));
+
 
             }
         });

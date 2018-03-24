@@ -1,6 +1,5 @@
 package com.example.ricky.myapplication;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -40,8 +39,13 @@ public class ItemList {
 
     }
 
-    public ArrayList<String> getArrayString() {
-        return new ArrayList<String>(this.arrItem.keySet());
+
+    public ArrayList<String> getArrayString(ArrayList<Item> arrstr) {
+        ArrayList<String> result = new ArrayList<String>();
+        for (int i=0 ; i<arrstr.size() ; i++) {
+            result.add(arrstr.get(i).getName());
+        }
+        return result;
     }
 
     public ArrayList<Item> getArrayItem() {
@@ -82,5 +86,6 @@ public class ItemList {
     public Item getValue(String key) {
         return this.arrItem.get(key);
     }
+
 
 }

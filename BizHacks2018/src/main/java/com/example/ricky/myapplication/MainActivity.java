@@ -22,7 +22,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     String query;
+    ArrayList<Item> arrItemList;
     ArrayList<String> arrItem;
+    ItemList itemList;
 
 //    private static final int NOTIFICATION_ID = 1;
 //    private static final String NOTIFICATION_CHANNEL_ID = "my_notification_channel";
