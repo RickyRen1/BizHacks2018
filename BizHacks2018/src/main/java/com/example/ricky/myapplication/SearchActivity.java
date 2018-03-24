@@ -24,7 +24,11 @@ public class SearchActivity extends AppCompatActivity {
     //Bundle extras = getIntent().getExtras();
 
        private void generateProductList() {
-        this.arrItemList = new ArrayList<Item>();
+           ItemListEnum itemListEnum = ItemListEnum.getItemList();
+           arrItemList = itemListEnum.arrItemList;
+           itemList = itemListEnum.itemList;
+           productList = itemListEnum.productList;
+        /*this.arrItemList = new ArrayList<Item>();
         Item item = new Item("ASUS Vivobook 15.6\" Laptop - Grey (Intel Core i5-8250U/1TB SSHD/8GB RAM/Windows 10)",
                 Integer.toString(12315119),
                 false,
@@ -161,7 +165,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
         this.itemList = new ItemList(this.arrItemList);
-        this.productList = itemList.getArrayString();
+        this.productList = itemList.getArrayString();*/
     }
 
     @Override
