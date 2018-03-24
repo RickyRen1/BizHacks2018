@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 query = edittext.getText().toString();
                 Log.v("EditText", query);
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                intent.putExtra("SEARCH_QUERY", arrItem);
+                intent.putExtra("SEARCH_RESULT", arrItem);
                 startActivity(intent);
                 /*
                 Intent intent = getIntent();
