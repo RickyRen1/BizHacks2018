@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BizHacks2018.iml" filepath="$PROJECT_DIR$/BizHacks2018.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BizHacks2018.iml" filepath="$PROJECT_DIR$/BizHacks2018.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BizHacks2018/BizHacks2018-BizHacks2018.iml" filepath="$PROJECT_DIR$/BizHacks2018/BizHacks2018-BizHacks2018.iml" />
       <module fileurl="file://$PROJECT_DIR$/BizHacks2018/BizHacks2018-BizHacks2018.iml" filepath="$PROJECT_DIR$/BizHacks2018/BizHacks2018-BizHacks2018.iml" />
       <module fileurl="file://C:\Users\Ricky\AndroidStudioProjects\BizHacks2018\BizHacks2018\app.iml" filepath="C:\Users\Ricky\AndroidStudioProjects\BizHacks2018\BizHacks2018\app.iml" />
     </modules>

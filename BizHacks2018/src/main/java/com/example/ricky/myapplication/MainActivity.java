@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showNotification("sale", "product");
+        showNotification("Favourite BestBuy Items On-Sale", ItemListEnum.getItemList().generate_favourite_on_sale_items());
 
         AsyncTask.execute(new Runnable() {
             @Override

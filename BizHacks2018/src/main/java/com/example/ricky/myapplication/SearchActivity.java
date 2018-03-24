@@ -1,5 +1,6 @@
 package com.example.ricky.myapplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -20,152 +22,15 @@ public class SearchActivity extends AppCompatActivity {
     ListView list;
     ArrayList<Item> arrItemList;
     ItemList itemList;
-    ArrayList<String> productList;//= { "computer", "tv", "mouse", "games", "asd", "sdf", "sdfds", "asd", "sdf", "sdfds", "asd", "sdf", "sdfds", "asd", "sdf", "sdfds", "asd", "sdf", "sdfds", "asd", "sdf", "sdfds" };
-    //Bundle extras = getIntent().getExtras();
+    ArrayList<String> productList;
+    ArrayList<String> productListSaleStatus;
 
        private void generateProductList() {
            ItemListEnum itemListEnum = ItemListEnum.getItemList();
            arrItemList = itemListEnum.arrItemList;
            itemList = itemListEnum.itemList;
            productList = itemListEnum.productList;
-        /*this.arrItemList = new ArrayList<Item>();
-        Item item = new Item("ASUS Vivobook 15.6\" Laptop - Grey (Intel Core i5-8250U/1TB SSHD/8GB RAM/Windows 10)",
-                Integer.toString(12315119),
-                false,
-                true,
-                "799.99",
-                "599.99"
-        );
-        this.arrItemList.add(item);
-        item = new Item("Apple AirPods In-Ear Bluetooth Headphones with Mic (MMEF2C/A) - White",
-                Integer.toString(10557542),
-                false,
-                false,
-                "219.99",
-                "219.99"
-        );
-        this.arrItemList.add(item);
-        item = new Item("Nintendo Super NES Classic Edition Console)",
-                Integer.toString(11470309),
-                true,
-                false,
-                "99.99",
-                "99.99"
-        );
-        this.arrItemList.add(item);
-        item = new Item(" MacBook Pro 13 2.5GHz i5 4GB / 500GB - Refurbished, Grade A, Excellent Condition, 9/10",
-                Integer.toString(12308129),
-                false,
-                true,
-                "1099.0",
-                "$889.0"
-        );
-           this.arrItemList.add(item);
-           item = new Item(" MacBook Pro 15 2.5GHz i5 4GB / 500GB - Refurbished, Grade A, Excellent Condition, 9/10",
-                   Integer.toString(12308130),
-                   false,
-                   true,
-                   "1099.0",
-                   "$889.0"
-           );
-           this.arrItemList.add(item);
-           item = new Item(" MacBook Pro 14 2.5GHz i5 4GB / 500GB - Refurbished, Grade A, Excellent Condition, 9/10",
-                   Integer.toString(12308229),
-                   false,
-                   true,
-                   "1099.0",
-                   "$889.0"
-           );
-        this.arrItemList.add(item);
-        item = new Item("Samsung 55\" 4K UHD HDR LED Tizen Smart TV (UN55MU6300FXZC) - Dark Titan",
-                Integer.toString(10583529),
-                false,
-                true,
-                "849.99",
-                "799.99"
-        );
-        this.arrItemList.add(item);
-        item = new Item("Dell 15.6\" Inspiron Touchscreen Laptop - Black (Intel Core i3-7100U/1TB HDD/8GB RAM/Windows 10)",
-                   Integer.toString(11616659),
-                   false,
-                   false,
-                   "699.99",
-                   "699.99"
-        );
-        this.arrItemList.add(item);
-        item = new Item("ony 50\" 4K UHD HDR LED Linux Smart TV (KD50X690E)",
-                   Integer.toString(10583529),
-                   false,
-                   false,
-                   "999.99",
-                   "999.99"
-           );
-        this.arrItemList.add(item);
-
-           item = new Item("Refurbished HP 215 AMD A6-1450 1Ghz, 4GB Ram, 500GB Drive, Radeon HD 8250, BTT 4.0, HDMI, Touch, webcam, Win 10 Home",
-                   Integer.toString(10583529),
-                   false,
-                   false,
-                   "999.99",
-                   "999.99"
-           );
-
-
-           this.arrItemList.add(item);
-           item = new Item("Google Home - White/Slate",
-                   Integer.toString(10721100),
-                   false,
-                   false,
-                   "179.99",
-                   "179.99"
-           );
-
-           this.arrItemList.add(item);
-           item = new Item("Google Home - Black/Slate",
-                   Integer.toString(10721101),
-                   false,
-                   false,
-                   "179.99",
-                   "179.99"
-           );
-           this.arrItemList.add(item);
-           item = new Item("Google Home - Green/Slate",
-                   Integer.toString(20721101),
-                   false,
-                   false,
-                   "179.99",
-                   "179.99"
-           );
-
-           this.arrItemList.add(item);
-           item = new Item("Google Home - Blue/Slate",
-                   Integer.toString(20721201),
-                   false,
-                   false,
-                   "179.99",
-                   "179.99"
-           );
-           this.arrItemList.add(item);
-           item = new Item("Samsung 55\" 4K UHD HDR LED Tizen Smart TV (UN55MU6300FXZC) - Dark Titan",
-                   Integer.toString(10721102),
-                   false,
-                   false,
-                   "179.99",
-                   "179.99"
-           );
-           this.arrItemList.add(item);
-           item = new Item("Nintendo Super NES Limited Edition Console)",
-                   Integer.toString(11470308),
-                   true,
-                   false,
-                   "1199.99",
-                   "1199.99"
-           );
-           this.arrItemList.add(item);
-
-
-        this.itemList = new ItemList(this.arrItemList);
-        this.productList = itemList.getArrayString();*/
+           productListSaleStatus = itemListEnum.productListSaleStatus;
     }
 
     @Override
@@ -176,7 +41,7 @@ public class SearchActivity extends AppCompatActivity {
         list = (ListView)findViewById(R.id.listView);
         //ArrayList<String> arrList = extras.getStringArrayList("SEARCH_RESULT");
         System.out.println("Creating arrayAdapter");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.activity_listview, productList);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.activity_listview, productListSaleStatus);
         System.out.println("Setting arrayAdapter to list");
 //        ArrayList<Item> items = itemList.getArrayItem();
         list.setAdapter(arrayAdapter);
@@ -185,17 +50,19 @@ public class SearchActivity extends AppCompatActivity {
         for(int i=0; i<arrItemList.size(); i++) {
             System.out.println(arrItemList.get(i));
             System.out.println(arrItemList.get(i).getName() + " favourite = " + arrItemList.get(i).getFavourite());
+        /*    if(arrItemList.get(i).getOnSale() == true) {
+                CheckedTextView simpleTextView = (CheckedTextView) findViewById(R.id.checkedTextView1);
+                simpleTextView.setBackgroundColor(Color.YELLOW);
+            }*/
             if(arrItemList.get(i).getFavourite() == true) {
                 list.setItemChecked(i, true);
+
             }
         }
-//        list.setItemChecked(0, true);
-//        list.setItemChecked(1, true);
-//        list.setItemChecked(2, true);
+
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView list, View view, int position, long id) {
-                //ArrayList<Item> items = itemList.getArrayItem();
                 System.out.println("item id is " + id);
                 System.out.println("item position is " + position);
                 System.out.println("item name is " + arrItemList.get((int)id).getName() + " using id");

@@ -1,5 +1,6 @@
 package com.example.ricky.myapplication;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -62,6 +63,21 @@ public class ItemList {
         }
         return result;
     }
+
+    public ArrayList<String> getArraySaleNameList() {
+        ArrayList<String> result = new ArrayList<String>();
+        for (HashMap.Entry<String, Item> entry : this.arrItem.entrySet()) {
+            String temp = "";
+            if (entry.getValue().getOnSale()) {
+                temp = "ON-SALE!\n";
+            }
+            temp += entry.getValue().getName();
+            result.add(temp);
+
+        }
+        return result;
+    }
+
 
     public Item getValue(String key) {
         return this.arrItem.get(key);

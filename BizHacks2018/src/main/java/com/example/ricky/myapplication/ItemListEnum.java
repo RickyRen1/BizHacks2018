@@ -2,6 +2,7 @@ package com.example.ricky.myapplication;
 
 import android.widget.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -23,6 +24,24 @@ public class ItemListEnum {
     public static ArrayList<Item> arrItemList;
     public static ItemList itemList;
     public static ArrayList<String> productList;
+    public static ArrayList<String> productListSaleStatus;
+
+    public static String generate_favourite_on_sale_items() {
+        ArrayList<Item> fave = itemList.getFavourite();
+        String result = "";
+        for (int i=0 ; i<fave.size() ; i++) {
+            Item item = fave.get(i);
+            if (item.getOnSale()) {
+                result += item.getId() + " ";
+            }
+        }
+
+        if (result.equals("")) {
+            return "No Current Items on your Favourite is on Sale.";
+        } else {
+            return "BestBuy Item/s on your Favourite is/are on Sale!" ;
+        }
+    }
 
     private void generateProductList() {
         this.arrItemList = new ArrayList<Item>();
@@ -52,7 +71,7 @@ public class ItemListEnum {
         this.arrItemList.add(item);
         item = new Item(" MacBook Pro 13 2.5GHz i5 4GB / 500GB - Refurbished, Grade A, Excellent Condition, 9/10",
                 Integer.toString(12308129),
-                false,
+                true,
                 true,
                 "1099.0",
                 "$889.0"
@@ -60,7 +79,7 @@ public class ItemListEnum {
         this.arrItemList.add(item);
         item = new Item(" MacBook Pro 15 2.5GHz i5 4GB / 500GB - Refurbished, Grade A, Excellent Condition, 9/10",
                 Integer.toString(12308130),
-                false,
+                true,
                 true,
                 "1099.0",
                 "$889.0"
@@ -90,7 +109,7 @@ public class ItemListEnum {
                 "699.99"
         );
         this.arrItemList.add(item);
-        item = new Item("ony 50\" 4K UHD HDR LED Linux Smart TV (KD50X690E)",
+        item = new Item("Sony 50\" 4K UHD HDR LED Linux Smart TV (KD50X690E)",
                 Integer.toString(10583529),
                 false,
                 false,
@@ -163,5 +182,6 @@ public class ItemListEnum {
 
         this.itemList = new ItemList(this.arrItemList);
         this.productList = itemList.getArrayString();
+        this.productListSaleStatus = itemList.getArraySaleNameList();
     }
 }
