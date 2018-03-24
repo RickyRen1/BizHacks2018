@@ -1,4 +1,4 @@
-package com.example.nghev01.myapplication;
+package com.example.ricky.myapplication;
 
 import org.json.JSONException;
 import org.json.JSONObject;

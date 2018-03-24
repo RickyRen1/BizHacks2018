@@ -1,4 +1,5 @@
-package com.example.nghev01.myapplication;
+package com.example.ricky.myapplication;
+
 
 /**
  * Created by nghev01 on 2018-03-23.
