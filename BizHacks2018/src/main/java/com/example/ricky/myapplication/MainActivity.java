@@ -35,6 +35,17 @@ public class MainActivity extends AppCompatActivity {
                 */
             }
         });
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                BestBuyClient buy = new BestBuyClient("http://bizhacks.bbycastatic.ca/mobile-si/si");
+                JSONObject obj = buy.getCategory(null);
+
+                obj = buy.getSearch(null,null,null,null,null,null,null,null);
+                ArrayList<String> arrItem = ResponseParser.parseSearch(obj);
+
+            }
+        });
 
     }
 }

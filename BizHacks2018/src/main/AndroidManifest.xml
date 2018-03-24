@@ -33,4 +33,7 @@
         <activity android:name=".ListView"></activity>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
 </manifest>
