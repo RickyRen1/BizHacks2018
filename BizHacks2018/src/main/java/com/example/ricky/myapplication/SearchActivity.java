@@ -25,6 +25,7 @@ public class SearchActivity extends AppCompatActivity {
 
        private void generateProductList() {
         this.arrItemList = new ArrayList<Item>();
+        this.productList = new ArrayList<String>();
         Item item = new Item("ASUS Vivobook 15.6\" Laptop - Grey (Intel Core i5-8250U/1TB SSHD/8GB RAM/Windows 10)",
                 Integer.toString(12315119),
                 false,
@@ -33,6 +34,7 @@ public class SearchActivity extends AppCompatActivity {
                 "599.99"
         );
         this.arrItemList.add(item);
+        this.productList.add(item.getName());
         item = new Item("Apple AirPods In-Ear Bluetooth Headphones with Mic (MMEF2C/A) - White",
                 Integer.toString(10557542),
                 false,
@@ -41,6 +43,7 @@ public class SearchActivity extends AppCompatActivity {
                 "219.99"
         );
         this.arrItemList.add(item);
+        this.productList.add(item.getName());
         item = new Item("Nintendo Super NES Classic Edition Console)",
                 Integer.toString(11470309),
                 true,
@@ -49,6 +52,7 @@ public class SearchActivity extends AppCompatActivity {
                 "99.99"
         );
         this.arrItemList.add(item);
+        this.productList.add(item.getName());
         item = new Item(" MacBook Pro 13 2.5GHz i5 4GB / 500GB - Refurbished, Grade A, Excellent Condition, 9/10",
                 Integer.toString(12308129),
                 false,
@@ -57,6 +61,7 @@ public class SearchActivity extends AppCompatActivity {
                 "$889.0"
         );
            this.arrItemList.add(item);
+           this.productList.add(item.getName());
            item = new Item(" MacBook Pro 15 2.5GHz i5 4GB / 500GB - Refurbished, Grade A, Excellent Condition, 9/10",
                    Integer.toString(12308130),
                    false,
@@ -65,6 +70,7 @@ public class SearchActivity extends AppCompatActivity {
                    "$889.0"
            );
            this.arrItemList.add(item);
+           this.productList.add(item.getName());
            item = new Item(" MacBook Pro 14 2.5GHz i5 4GB / 500GB - Refurbished, Grade A, Excellent Condition, 9/10",
                    Integer.toString(12308229),
                    false,
@@ -73,6 +79,7 @@ public class SearchActivity extends AppCompatActivity {
                    "$889.0"
            );
         this.arrItemList.add(item);
+        this.productList.add(item.getName());
         item = new Item("Samsung 55\" 4K UHD HDR LED Tizen Smart TV (UN55MU6300FXZC) - Dark Titan",
                 Integer.toString(10583529),
                 false,
@@ -81,6 +88,7 @@ public class SearchActivity extends AppCompatActivity {
                 "799.99"
         );
         this.arrItemList.add(item);
+        this.productList.add(item.getName());
         item = new Item("Dell 15.6\" Inspiron Touchscreen Laptop - Black (Intel Core i3-7100U/1TB HDD/8GB RAM/Windows 10)",
                    Integer.toString(11616659),
                    false,
@@ -89,7 +97,8 @@ public class SearchActivity extends AppCompatActivity {
                    "699.99"
         );
         this.arrItemList.add(item);
-        item = new Item("ony 50\" 4K UHD HDR LED Linux Smart TV (KD50X690E)",
+        this.productList.add(item.getName());
+        item = new Item("Sony 50\" 4K UHD HDR LED Linux Smart TV (KD50X690E)",
                    Integer.toString(10583529),
                    false,
                    false,
@@ -97,7 +106,7 @@ public class SearchActivity extends AppCompatActivity {
                    "999.99"
            );
         this.arrItemList.add(item);
-
+        this.productList.add(item.getName());
            item = new Item("Refurbished HP 215 AMD A6-1450 1Ghz, 4GB Ram, 500GB Drive, Radeon HD 8250, BTT 4.0, HDMI, Touch, webcam, Win 10 Home",
                    Integer.toString(10583529),
                    false,
@@ -108,6 +117,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
            this.arrItemList.add(item);
+           this.productList.add(item.getName());
            item = new Item("Google Home - White/Slate",
                    Integer.toString(10721100),
                    false,
@@ -117,6 +127,7 @@ public class SearchActivity extends AppCompatActivity {
            );
 
            this.arrItemList.add(item);
+           this.productList.add(item.getName());
            item = new Item("Google Home - Black/Slate",
                    Integer.toString(10721101),
                    false,
@@ -125,6 +136,7 @@ public class SearchActivity extends AppCompatActivity {
                    "179.99"
            );
            this.arrItemList.add(item);
+           this.productList.add(item.getName());
            item = new Item("Google Home - Green/Slate",
                    Integer.toString(20721101),
                    false,
@@ -134,6 +146,7 @@ public class SearchActivity extends AppCompatActivity {
            );
 
            this.arrItemList.add(item);
+           this.productList.add(item.getName());
            item = new Item("Google Home - Blue/Slate",
                    Integer.toString(20721201),
                    false,
@@ -142,6 +155,7 @@ public class SearchActivity extends AppCompatActivity {
                    "179.99"
            );
            this.arrItemList.add(item);
+           this.productList.add(item.getName());
            item = new Item("Samsung 55\" 4K UHD HDR LED Tizen Smart TV (UN55MU6300FXZC) - Dark Titan",
                    Integer.toString(10721102),
                    false,
@@ -150,6 +164,7 @@ public class SearchActivity extends AppCompatActivity {
                    "179.99"
            );
            this.arrItemList.add(item);
+           this.productList.add(item.getName());
            item = new Item("Nintendo Super NES Limited Edition Console)",
                    Integer.toString(11470308),
                    true,
@@ -158,10 +173,11 @@ public class SearchActivity extends AppCompatActivity {
                    "1199.99"
            );
            this.arrItemList.add(item);
+           this.productList.add(item.getName());
 
 
         this.itemList = new ItemList(this.arrItemList);
-        this.productList = itemList.getArrayString();
+        //this.productList = itemList.getArrayString();
     }
 
     @Override
@@ -197,7 +213,7 @@ public class SearchActivity extends AppCompatActivity {
                 System.out.println("item name is " + arrItemList.get((int)id).getName() + " using id");
                 System.out.println("item name is " + arrItemList.get(position).getName() + " using position");
                 arrItemList.get(position).setFavourite(!(arrItemList.get(position).getFavourite()));
-
+                System.out.println("item favourite value is " + arrItemList.get(position).getFavourite());
             }
         });
     }
