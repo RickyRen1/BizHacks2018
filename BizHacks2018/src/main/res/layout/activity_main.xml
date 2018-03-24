@@ -29,6 +29,14 @@
                 android:layout_below="@+id/searchText"
                 android:layout_centerHorizontal="true"
                 android:text="@string/enter_name" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="500px"
+                android:layout_height="500px"
+                android:layout_above="@+id/searchText"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/bestbuy_logo" />
         </RelativeLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
