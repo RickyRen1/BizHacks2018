@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        */
 
         final Button button = findViewById(R.id.button);
         final EditText edittext = findViewById(R.id.searchText);
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 query = edittext.getText().toString();
                 Log.v("EditText", query);
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                intent.putExtra("SEARCH_RESULT", arrItem);
+                //intent.putExtra("SEARCH_RESULT", arrItem);
                 startActivity(intent);
                 /*
                 Intent intent = getIntent();
