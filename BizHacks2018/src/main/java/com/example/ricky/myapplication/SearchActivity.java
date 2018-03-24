@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 
+import java.util.ArrayList;
+
 public class SearchActivity extends AppCompatActivity {
 
     ListView list;

@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String query = edittext.getText().toString();
                 Log.v("EditText", query);
-                startActivity(new Intent(MainActivity.this, SearchActivity.class));
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("SEARCH_QUERY", query);
+                startActivity(intent);
                 /*
                 Intent intent = getIntent();
                 if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
