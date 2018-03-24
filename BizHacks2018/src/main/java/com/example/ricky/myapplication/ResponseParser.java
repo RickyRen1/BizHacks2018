@@ -27,8 +27,8 @@ public class ResponseParser {
     }
 
     public static ArrayList<Item> parseSearchItem(JSONObject json) {
+        ArrayList<Item> result = new ArrayList<Item>();
         try {
-            ArrayList<Item> result = new ArrayList<Item>();
             JSONObject searchAPI = json.getJSONObject("searchApi");
             JSONArray docs = searchAPI.getJSONArray("documents");
 
@@ -44,7 +44,7 @@ public class ResponseParser {
             return result;
         } catch (JSONException e) {
             System.out.println(e.getMessage());
-            return null;
+            return result;
 
         }
     }

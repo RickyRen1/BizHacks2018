@@ -15,20 +15,35 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    String query;
+    ArrayList<String> arrItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                BestBuyClient buy = new BestBuyClient("http://bizhacks.bbycastatic.ca/mobile-si/si");
+                JSONObject obj;
+
+                obj = buy.getSearch(query,null,null,null,null,null,null,null);
+                arrItem = ResponseParser.parseSearch(obj);
+
+            }
+        });
 
         final Button button = findViewById(R.id.button);
         final EditText edittext = findViewById(R.id.searchText);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String query = edittext.getText().toString();
+                query = edittext.getText().toString();
                 Log.v("EditText", query);
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                intent.putExtra("SEARCH_QUERY", query);
+                intent.putExtra("SEARCH_QUERY", arrItem);
                 startActivity(intent);
                 /*
                 Intent intent = getIntent();
@@ -38,18 +53,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 */
             }
-        });
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                BestBuyClient buy = new BestBuyClient("http://bizhacks.bbycastatic.ca/mobile-si/si");
-                JSONObject obj = buy.getCategory(null);
+        }
 
-                obj = buy.getSearch(null,null,null,null,null,null,null,null);
-                ArrayList<String> arrItem = ResponseParser.parseSearch(obj);
-
-            }
-        });
+        );
 
     }
 }
