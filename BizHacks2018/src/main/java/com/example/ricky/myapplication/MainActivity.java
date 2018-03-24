@@ -16,7 +16,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     String query;
+    ArrayList<Item> arrItemList;
     ArrayList<String> arrItem;
+    ItemList itemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
